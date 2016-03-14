@@ -26,6 +26,9 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 Miracle+4チーム
 チームメンバー：
 ・２０１２２０７９　グエン・ホアン・ミン　（リーダー）
+
 ・２０１２１２５６  グエン・スアン・バック　（サブリーダー）
+
 ・２０１２２０８４　グエン・クアン・ミン
+
 ・２０１２２１６３　グエン・ドゥック・ゴック
