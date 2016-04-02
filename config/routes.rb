@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :images
   resources :users
   root 'static_pages#home'
   get 'static_pages/home'
   get 'static_pages/help'
   get 'signup'  => 'users#new'
+  get 'img_index' => 'images#index'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
