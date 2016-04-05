@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.all.order('created_at DESC')
   end
 
   # GET /images/1
@@ -28,7 +28,6 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     @image.user_id = current_user.id
-
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -38,6 +37,8 @@ class ImagesController < ApplicationController
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # PATCH/PUT /images/1
