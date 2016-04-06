@@ -1,4 +1,4 @@
-<%= form_for(@image_comment) do |f| %>
+<%= form_for(@image_comment),remote: true, html: { style: "display:inline;" } do |f| %>
   <% if @image_comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image_comment.errors.count, "error") %> prohibited this image_comment from being saved:</h2>
@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <div class="form-group">
+    <%= f.label :user_id,class: "control-label" %>
+    <%= f.number_field :user_id,class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_id,class: "control-label" %>
+    <%= f.number_field :image_id, class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :image_id %><br>
-    <%= f.number_field :image_id %>
+    <%= f.label :comment,class: "control-label" %><br>
+    <%= f.text_field :comment, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="modal-footer">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

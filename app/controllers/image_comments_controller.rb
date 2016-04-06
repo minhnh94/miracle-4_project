@@ -1,6 +1,6 @@
 class ImageCommentsController < ApplicationController
   before_action :set_image_comment, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :verify_authenticity_token  
   # GET /image_comments
   # GET /image_comments.json
   def index
@@ -26,17 +26,7 @@ class ImageCommentsController < ApplicationController
   def create
     @image_comment = ImageComment.new(image_comment_params)
     @image_comment.user_id = current_user.id
-
-    respond_to do |format|
-      if @image_comment.save
-        url = "/images/" + @image_comment.image_id.to_s
-        format.html { redirect_to url, notice: 'Image comment was successfully created.' }
-        format.json { render :show, status: :created, location: @image_comment }
-      else
-        format.html { render :new }
-        format.json { render json: @image_comment.errors, status: :unprocessable_entity }
-      end
-    end
+    @image_comment.save
   end
 
   # PATCH/PUT /image_comments/1

@@ -1,8 +1,120 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+img{
+	max-width:100%;
+	max-height: 100%;
+}
+figure{
+	height:100%;
+}
 .demo{
   font-size:150%;
   color: red;
+}
+ul li{
+	list-style:none;
+}
+.main-content{
+	width:55%;
+	margin:auto;
+}
+article{
+	background-color: white;
+    border: 1px solid #edeeee;
+    border-radius: 3px;
+    margin-bottom: 60px;
+    margin-right: -1px;
+}
+article header{
+	height: 64px;
+	padding: 14px 20px;
+}
+article figure{
+	margin-bottom:10px;
+}
+article figure.image{
+	//height:220px;
+	//overflow:hidden;
+}
+article .content{
+	padding-left: 24px;
+	padding-right: 24px;
+	margin-bottom: 30px;
+}
+article .content .name{
+	margin-right:10px;
+}
+article .content .title{
+	line-height:30px;
+	word-wrap: break-word;
+	font-size: 16px;
+	text-transform: capitalize;
+	color:blue;
+}
+.user-info .avartar{
+	float: left;
+	border: 1px solid #cccfd0;
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: block;
+	height: 30px;
+	overflow: hidden;
+	width: 30px;
+}
+.name{
+	float: left;
+	line-height: 30px;
+	//margin-left: 10px;
+	font-weight: 600;
+	overflow: hidden;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.user-info .name a, .user-info .name a:visited,.name a:hover{
+    color: #125688!important;
+    background-color: #fff;
+    text-decoration: none!important;
+}
+.comment{
+	padding : 0px 20px;
+	margin-bottom : 10px;
+}
+.comment span{
+    line-height: 10px;
+    font: inherit;
+	vertical-align: baseline;
+}
+.comment header{
+	margin-bottom: 20px;
+	padding: 10px 0px;
+	height: 20px;
+}
+.comment div figure{
+	float: left;
+	margin-right: 10px;
+	width: 6%;
+}
+.comment div .form-group{
+	float: left;
+	width: 90%;
+	margin:0px;
+}
+.comment ul{
+	word-wrap: break-word;
+	padding-left:0px;
+}
+.comment ul li{
+	margin-bottom:10px;
+}
+.comment span.name{
+	font-weight: 600;
+	margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 10px;
+}
+article .iconTool{
+	font-size:30px;
+	margin-bottom : 10px 
 }
