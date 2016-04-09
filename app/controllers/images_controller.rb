@@ -1,13 +1,25 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :search]
   before_action :require_login, only: [:edit, :update, :destroy, :new, :create]
 
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all.order('created_at DESC')
+      @images = Image.all
+      if params[:search]
+         @images = Image.search(params[:search])
+      else
+        @images = Image.all
+      end
   end
-
+  def search
+    @images = Image.all
+      if params[:search]
+         @images = Image.search(params[:search])
+      else
+        @images = Image.all
+      end
+  end
   # GET /images/1
   # GET /images/1.json
   def show
