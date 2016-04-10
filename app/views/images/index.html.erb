@@ -7,6 +7,7 @@
      <%= submit_tag "Search",class: "btn btn-primary" %>
     <% end %>
   </div>
+  <%= link_to 'New Image', new_image_path, remote:true,class:"btn btn-primary center"%>
 </div>
 <div class="row main-content">
     <% @images.each_with_index do |image,index| %>
@@ -51,12 +52,4 @@
     </div>
     <% end %>
 </div>
-<%= link_to 'New Image', new_image_path, remote:true %>
 <div id="product-modal" class="modal fade"></div>
-<script type="text/javascript">
-  $("#id_of_textbox").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#id_of_button").click();
-    }
-  });
-</script>
