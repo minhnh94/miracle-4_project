@@ -26,7 +26,9 @@ class ImageCommentsController < ApplicationController
   def create
     @image_comment = ImageComment.new(image_comment_params)
     @image_comment.user_id = current_user.id
-    @image_comment.save
+    if(!@image_comment.save)
+      render 'error'
+    end
   end
 
   # PATCH/PUT /image_comments/1
