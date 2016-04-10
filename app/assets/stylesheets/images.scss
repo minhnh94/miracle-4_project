@@ -118,3 +118,20 @@ article .iconTool{
 	font-size:30px;
 	margin-bottom : 10px 
 }
+#search-form form{
+	position: relative;
+	height: 35px;
+	margin-bottom: 30px;
+}
+#search-form .form-control{
+	position: absolute;
+	left:0px;
+	top : 0px;
+	width:100%;
+}
+#search-form .btn{
+	right:0px;
+	top : 0px;
+	position: absolute;
+	width:20%;
+}

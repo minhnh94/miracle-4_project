@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Images</h1>
-  <%= form_tag images_path, :method => 'get' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search Images with title" %>
-<% end %>
+<div class="row">
+  <div class="col-sm-4 clearfix center" id="search-form">
+    <%= form_tag images_path, :method => 'get' do %>
+     <%= text_field_tag :search, params[:search],class: "form-control" %>
+     <%= submit_tag "Search",class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 <div class="row main-content">
     <% @images.each_with_index do |image,index| %>
     <div class="col-sm-12">
