@@ -29,6 +29,7 @@ class ImageCommentsController < ApplicationController
     if(!@image_comment.save)
       render 'error'
     end
+    @comments = @image_comment.image.image_comment
   end
 
   # PATCH/PUT /image_comments/1
@@ -49,10 +50,7 @@ class ImageCommentsController < ApplicationController
   # DELETE /image_comments/1.json
   def destroy
     @image_comment.destroy
-    respond_to do |format|
-      format.html { redirect_to image_comments_url, notice: 'Image comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @comments = @image_comment.image.image_comment
   end
 
   private

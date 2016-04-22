@@ -1,4 +1,8 @@
-<li class="clearfix">
-    <span class="name"><%= link_to @image_comment.user.name,@image_comment.user %></span>
-   	<span><%=@image_comment.comment%></span>
-</li>
+          <% @comments.each do |comment| %>
+            <li class="clearfix" id="comment<%=comment.id%>">
+              <span class="name"><%= link_to comment.user.name,comment.user %></span>
+              <span><%=comment.comment%></span>
+            </li>
+          <%end%>
+          
+          

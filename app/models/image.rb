@@ -1,4 +1,7 @@
 class Image < ActiveRecord::Base
+	validates :title,  presence: true, length: { minimum: 1 }
+	validates :file,  presence: true, length: { minimum: 1 }
+
     mount_uploader :file, ImageUploader
     
     belongs_to :user
