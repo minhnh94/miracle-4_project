@@ -30,6 +30,7 @@ class ImageCommentsController < ApplicationController
       render 'error'
     end
     @comments = @image_comment.image.image_comment
+    render 'save'
   end
 
   # PATCH/PUT /image_comments/1
@@ -49,10 +50,10 @@ class ImageCommentsController < ApplicationController
   # DELETE /image_comments/1
   # DELETE /image_comments/1.json
   def destroy
+    @image_id = @image_comment.image.id
     @image_comment.destroy
     @comments = @image_comment.image.image_comment
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image_comment

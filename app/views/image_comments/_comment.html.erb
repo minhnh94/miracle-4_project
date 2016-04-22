@@ -1,8 +1,11 @@
           <% @comments.each do |comment| %>
-            <li class="clearfix" id="comment<%=comment.id%>">
-              <span class="name"><%= link_to comment.user.name,comment.user %></span>
-              <span><%=comment.comment%></span>
-            </li>
+            <li class="clearfix">
+	              <span class="name"><%= link_to comment.user.name,comment.user %></span>
+	              <span><%=comment.comment%></span>
+	              <% if comment.user == current_user %>
+	              <span class="control"><%= link_to '', comment,class:"glyphicon glyphicon-remove",method: :delete,remote: true%>
+	              </li></span>
+	              <% end %>
           <%end%>
           
           
