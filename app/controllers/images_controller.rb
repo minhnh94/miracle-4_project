@@ -1,15 +1,15 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy, :search]
   before_action :require_login, only: [:edit, :update, :destroy, :new, :create]
-
+  before_action :correct_user,   only: [:edit,:destroy]
   # GET /images
   # GET /images.json
   def index
       @images = Image.all
       if params[:search]
-         @images = Image.search(params[:search])
+         @images = Image.search(params[:search]).order(created_at: :desc)
       else
-        @images = Image.all
+        @images = Image.all.order(created_at: :desc)
       end
   end
   def search
@@ -42,7 +42,7 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to images_url, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
@@ -93,5 +93,8 @@ class ImagesController < ApplicationController
         flash[:danger] = "You must be logged in to access this section"
         redirect_to login_path
       end
+    end
+    def correct_user
+      redirect_to images_url unless @image.user == current_user
     end
 end
