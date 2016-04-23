@@ -1,0 +1,19 @@
+Fontconfig warning: ignoring C.UTF-8: not a valid language tag
+1..1
+Version: ImageMagick 6.9.3-7 Q16 x86_64 2016-04-04 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2016 ImageMagick Studio LLC
+
+ImageMagick Validation Suite (Montage)
+
+validate montage command line program:
+  test 0: ... pass.
+  test 1: -frame 5... pass.
+  test 2: -geometry 13x19+10+5 -gravity Center... pass.
+  test 3: -label %f... pass.
+  test 4: -pointsize 10... pass.
+  test 5: -shadow... pass.
+  test 6: -tile 3x3... pass.
+  summary: 7 subtests; 7 passed; 0 failed.
+validation suite: 7 tests; 7 passed; 0 failed.
+ok
+PASS: tests/validate-montage.tap 1

@@ -6,7 +6,7 @@
      <%= submit_tag "Search",class: "btn btn-primary" %>
     <% end %>
   </div>
-  <%= link_to 'New Image', new_image_path, remote:true,class:"btn btn-primary center"%>
+  <%= link_to '', new_image_path, remote:true,class:"btn btn-primary plus glyphicon-plus"%>
 </div>
 <div class="row main-content">
     <% @images.each_with_index do |image,index| %>
