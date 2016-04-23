@@ -42,7 +42,8 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
     respond_to do |format|
       if @image.save
-        format.html { redirect_to images_url, notice: 'Image was successfully created.' }
+        flash[:success]='Image was successfully created.';
+        format.html { redirect_to images_url}
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
@@ -72,7 +73,8 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      flash[:success]='Image was successfully destroyed.'
+      format.html { redirect_to images_url }
       format.json { head :no_content }
     end
   end
