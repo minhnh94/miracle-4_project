@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         remember user
-      	redirect_to user
+      	redirect_to images_path
     else
       # Create an error message.
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
       log_out if logged_in?
-      redirect_to root_url
+      redirect_to images_path
   end
 end
