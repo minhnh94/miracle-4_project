@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   has_many :image, ->{ order "created_at desc"}
+  has_many :image_comment, ->{ order "created_at desc"}
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
