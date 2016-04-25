@@ -19,7 +19,7 @@
 </div>
 <div class="row main-content">
     <% @images.each_with_index do |image,index| %>
-    <div class="col-sm-12">
+    <div class="col-sm-4">
       <article class="clearfix" >
         <header class="user-info clearfix">
           <figure class="avartar"><%= gravatar_for image.user %></figure>
@@ -35,7 +35,7 @@
         <div class="comment clearfix">
           <%if logged_in?%>
           <header>Comment</header>
-          <div style="height: 30px; margin-bottom: 10px;">
+          <div style="height: 30px; margin-bottom: 10px;" class="clearfix">
             <figure><%= gravatar_for current_user %></figure>
             <form class="form-group" data-remote="true" action="/image_comments" accept-charset="UTF-8" method="post">
               <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>">

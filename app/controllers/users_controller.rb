@@ -61,6 +61,15 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy  
+        @user.image.each_with_index do |image,index|
+          image.image_comment.each do |comment|
+            comment.destroy
+          end
+          image.destroy
+        end
+        @user.image_comment.each do |comment|
+          comment.destroy
+        end
         @user.destroy
         respond_to do |format|
           flash[:success] = 'User was successfully destroyed.'

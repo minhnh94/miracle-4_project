@@ -6,48 +6,47 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<!--<h1>Listing Images</h1>-->
-<!--<div class="row main-content">-->
-<!--    <% @user.image.each_with_index do |image,index| %>-->
-<!--    <div class="col-sm-12">-->
-<!--      <article class="clearfix" >-->
-<!--        <header class="user-info clearfix">-->
-<!--          <figure class="avartar"><%= gravatar_for image.user %></figure>-->
-<!--          <p class="name"><%= link_to image.user.name,image.user %></p>-->
-<!--        </header>-->
-<!--        <figure class="image">-->
-<!--          <%= image_tag image.file %>-->
-<!--        </figure>-->
-<!--        <div class="content">-->
-<!--          <span class="name"><%= link_to image.user.name,image.user %></span>-->
-<!--          <span class="title clearfix"><%=image.title %></span>-->
-<!--        </div>-->
-<!--        <div class="comment clearfix">-->
-<!--          <%if logged_in?%>-->
-<!--          <header>Comment</header>-->
-<!--          <div style="height: 30px; margin-bottom: 10px;">-->
-<!--            <figure><%= gravatar_for current_user %></figure>-->
-<!--            <form class="form-group" data-remote="true" action="/image_comments" accept-charset="UTF-8" method="post">-->
-<!--              <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>">-->
-<!--              <input value="<%=image.id%>" name="image_comment[image_id]" type="hidden">-->
-<!--              <input value="<%=current_user.id%>" name="image_comment[user_id]" type="hidden">-->
-<!--            </form>-->
-<!--          </div>-->
-<!--          <% end -%>-->
-<!--          <ul id="<%=image.id%>" class="comments">-->
-<!--          <% @comments = image.image_comment%>-->
-<!--          <%= render 'image_comments/comment' %>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--        <div class="col-sm-5 iconTool">-->
-<!--          <div class="col-sm-4"><%= link_to '', image,class: "fa fa-eye" %></div>-->
-<!--          <% if image.user == current_user%>-->
-<!--          <div class="col-sm-4"><%= link_to '',edit_image_path(image),class: "fa fa-pencil-square" %></div>-->
-<!--          <div class="col-sm-4"><%= link_to '', image,class: "fa fa-trash",method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
-<!--          <% end %>-->
-<!--        </div>-->
-<!--      </article>-->
-<!--    </div>-->
-<!--    <% end %>-->
-<!--</div>-->
-<!--<div id="product-modal" class="modal fade"></div>-->
+<h1>Listing Images</h1>
+<div class="row main-content">
+    <% @user.image.each_with_index do |image,index| %>
+    <div class="col-sm-12">
+      <article class="clearfix" >
+        <header class="user-info clearfix">
+          <figure class="avartar"><%= gravatar_for image.user %></figure>
+          <p class="name"><%= link_to image.user.name,image.user %></p>
+        </header>
+        <figure class="image">
+          <%= image_tag image.file %>
+        </figure>
+        <div class="content">
+          <span class="name"><%= link_to image.user.name,image.user %></span>
+          <span class="title clearfix"><%=image.title %></span>
+        </div>
+        <div class="comment clearfix">
+          <%if logged_in?%>
+          <header>Comment</header>
+          <div style="height: 30px; margin-bottom: 10px;">
+            <figure><%= gravatar_for current_user %></figure>
+            <form class="form-group" data-remote="true" action="/image_comments" accept-charset="UTF-8" method="post">
+              <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>">
+              <input value="<%=image.id%>" name="image_comment[image_id]" type="hidden">
+              <input value="<%=current_user.id%>" name="image_comment[user_id]" type="hidden">
+            </form>
+          </div>
+          <% end -%>
+          <ul id="<%=image.id%>" class="comments">
+          <% @comments = image.image_comment%>
+          <%= render 'image_comments/comment' %>
+          </ul>
+        </div>
+        <div class="col-sm-5 iconTool">
+          <div class="col-sm-4"><%= link_to '', image,class: "fa fa-eye" %></div>
+          <% if image.user == current_user%>
+          <div class="col-sm-4"><%= link_to '',edit_image_path(image),class: "fa fa-pencil-square" %></div>
+          <div class="col-sm-4"><%= link_to '', image,class: "fa fa-trash",method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <% end %>
+        </div>
+      </article>
+    </div>
+    <% end %>
+</div>
