@@ -14,10 +14,10 @@
     <% end %>
   </div>
   <% if logged_in? %>
-  <%= link_to '', new_image_path, remote:true,class:"btn btn-primary plus glyphicon-plus"%>
+  <%= link_to '', new_image_path, remote:true,class:"btn btn-primary fa fa-pencil plus"%>
   <% end %>
 </div>
-<div class="row main-content">
+<div class="row main-content"  id="images">
     <% @images.each_with_index do |image,index| %>
     <div class="col-sm-4">
       <article class="clearfix" >
@@ -25,9 +25,11 @@
           <figure class="avartar"><%= gravatar_for image.user %></figure>
           <p class="name"><%= link_to image.user.name,image.user %></p>
         </header>
-        <figure class="image">
-          <%= image_tag image.file %>
-        </figure>
+        <a href="images/<%=image.id%>">
+          <figure class="image">
+            <%= image_tag image.file %>
+          </figure>
+        </a>
         <div class="content">
           <span class="name"><%= link_to image.user.name,image.user %></span>
           <span class="title clearfix"><%=image.title %></span>
@@ -38,9 +40,9 @@
           <div style="height: 30px; margin-bottom: 10px;" class="clearfix">
             <figure><%= gravatar_for current_user %></figure>
             <form class="form-group" data-remote="true" action="/image_comments" accept-charset="UTF-8" method="post">
-              <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>">
-              <input value="<%=image.id%>" name="image_comment[image_id]" type="hidden">
-              <input value="<%=current_user.id%>" name="image_comment[user_id]" type="hidden">
+              <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>"/>
+              <input value="<%=image.id%>" name="image_comment[image_id]" type="hidden"/>
+              <input value="<%=current_user.id%>" name="image_comment[user_id]" type="hidden"/>
             </form>
           </div>
           <% end -%>

@@ -6,12 +6,22 @@ a.plus:visited{
 }
 img{
 	max-width:100%;
-	max-height: 100%;
+	max-height: auto;
+	-webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: 0.4s;
 }
+#images figure:hover img{
+	max-width:110%;
+	margin-left:-5%;
+	position:absolute;
+	z-index:10000;
+}
+
 figure{
 	height:auto;
 	//max-height: 400px;
 }
+
 .demo{
   font-size:150%;
   color: red;
@@ -51,10 +61,15 @@ article{
     border-radius: 3px;
     margin-bottom: 10px;
     margin-right: -1px;
-    height:700px;
+    height:710px;
 }
-.main-content figure{
-	max-height:400px;
+#images figure.image{
+	height:263px;
+	overflow:hidden;
+}
+#images figure.image:hover{
+	//height:263px;
+	overflow:visible;
 }
 article header{
 	height: 64px;
@@ -67,10 +82,12 @@ article figure.image{
 	//height:220px;
 	//overflow:hidden;
 }
-article .content{
-	padding-left: 24px;
-	padding-right: 24px;
-	margin-bottom: 30px;
+article .content {
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-bottom: 10px;
+  height: 60px;
+  overflow: hidden;
 }
 article .content .name{
 	margin-right:10px;
@@ -111,6 +128,7 @@ article .content .title{
 .comment{
 	padding : 0px 20px;
 	margin-bottom : 10px;
+	height : 250px
 }
 .comment span{
 	float:left;
@@ -148,7 +166,7 @@ article .content .title{
 }
 ul.comments{
 	overflow-x: hidden;
-	max-height: 100px;
+	max-height: 150px;
 	width: 100%;
 	overflow-y: scroll;
 	font-size:14px!important;
@@ -192,4 +210,8 @@ article .iconTool{
 	top : 0px;
 	position: absolute;
 	width:20%;
+}
+.fa-pencil{
+	font-size: 32px!important;
+    line-height: 60px!important;
 }
