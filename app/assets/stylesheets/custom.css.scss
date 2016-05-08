@@ -166,7 +166,12 @@ input {
   width: auto;
   margin-left: 0;
 }
-
+.navbar-inverse .navbar-nav > li > a{
+  color : #fff;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+}
 // ::-webkit-scrollbar { width: 5px; height: 100px;}
 // ::-webkit-scrollbar-button {  background-color: #666; }
 // ::-webkit-scrollbar-track {  background-color: #999;}

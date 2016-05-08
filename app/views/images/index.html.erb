@@ -52,7 +52,7 @@
           </ul>
         </div>
         <div class="col-sm-5 iconTool">
-          <div class="col-sm-4"><%= link_to '', image,class: "fa fa-eye" %></div>
+          <!--<div class="col-sm-4"><%= link_to '', image,class: "fa fa-eye" %></div>-->
           <% if image.user == current_user%>
           <div class="col-sm-4"><%= link_to '',edit_image_path(image),class: "fa fa-pencil-square" %></div>
           <div class="col-sm-4"><%= link_to '', image,class: "fa fa-trash",method: :delete, data: { confirm: 'Are you sure?' } %></div>
