@@ -3,9 +3,9 @@
 	              <span class="name"><%= link_to comment.user.name,comment.user %></span>
 	              <span><%=comment.comment%></span>
 	              <% if comment.user == current_user %>
-	              <span class="control"><%= link_to '', comment,class:"glyphicon glyphicon-remove",method: :delete,remote: true%>
-	              </li></span>
+	              <span class="control"><%= link_to '', comment,class:"glyphicon glyphicon-remove",method: :delete,remote: true%></span>
 	              <% end %>
+	         </li>
           <%end%>
           
           

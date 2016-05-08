@@ -6,23 +6,20 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<h1>Listing Images</h1>
-<div class="row main-content">
 <h1>Listing Images From <strong><%= @user.name %></strong></h1>
-<div class="row main-content">
-    <% if @user.image.length == 0 %>
-    <p>Oops, this user hasn't uploaded any images.</p>
-    <% end %>
+<div class="row main-content"  id="images">
     <% @user.image.each_with_index do |image,index| %>
-    <div class="col-sm-12">
+    <div class="col-sm-4">
       <article class="clearfix" >
         <header class="user-info clearfix">
           <figure class="avartar"><%= gravatar_for image.user %></figure>
           <p class="name"><%= link_to image.user.name,image.user %></p>
         </header>
-        <figure class="image">
-          <%= image_tag image.file %>
-        </figure>
+        <a href="images/<%=image.id%>">
+          <figure class="image">
+            <%= image_tag image.file %>
+          </figure>
+        </a>
         <div class="content">
           <span class="name"><%= link_to image.user.name,image.user %></span>
           <span class="title clearfix"><%=image.title %></span>
@@ -30,12 +27,12 @@
         <div class="comment clearfix">
           <%if logged_in?%>
           <header>Comment</header>
-          <div style="height: 30px; margin-bottom: 10px;">
+          <div style="height: 30px; margin-bottom: 10px;" class="clearfix">
             <figure><%= gravatar_for current_user %></figure>
             <form class="form-group" data-remote="true" action="/image_comments" accept-charset="UTF-8" method="post">
-              <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>">
-              <input value="<%=image.id%>" name="image_comment[image_id]" type="hidden">
-              <input value="<%=current_user.id%>" name="image_comment[user_id]" type="hidden">
+              <input type="text" name="image_comment[comment]" value="" class="form-control input" id="input<%=image.id%>"/>
+              <input value="<%=image.id%>" name="image_comment[image_id]" type="hidden"/>
+              <input value="<%=current_user.id%>" name="image_comment[user_id]" type="hidden"/>
             </form>
           </div>
           <% end -%>
