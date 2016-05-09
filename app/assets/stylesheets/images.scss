@@ -10,7 +10,7 @@ img{
 	-webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
     transition: 0.4s;
 }
-#images figure:hover img{
+#images figure.image:hover img{
 	max-width:110%;
 	margin-left:-5%;
 	position:absolute;
