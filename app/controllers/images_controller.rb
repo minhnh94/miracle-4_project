@@ -13,7 +13,6 @@ class ImagesController < ApplicationController
       end
   end
   def search
-    @images = Image.all
       if params[:search]
          @images = Image.search(params[:search])
       else
@@ -89,7 +88,7 @@ class ImagesController < ApplicationController
     def image_params
       params.require(:image).permit(:user_id, :title, :file, :created_at)
     end
-    
+
     def require_login
       unless logged_in?
         flash[:danger] = "You must be logged in to access this section"
